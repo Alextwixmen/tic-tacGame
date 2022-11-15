@@ -11,6 +11,7 @@ const gameField = document.querySelector(".GameField");
 const newGameButton = document.querySelector(".newGameButton");
 const winnerText = document.querySelector(".winnerText");
 const winnerWindow = document.querySelector(".PopUpContent");
+const popUp = document.querySelector(".popUp");
 const arrWithCelss = [
   "gameСell1",
   "gameCell2",
@@ -180,26 +181,25 @@ gameField.addEventListener("click", (clickPlace) => {
     let winner = whoIsTheWinner();
     if (winner == "redCross") {
       showWinner(winner);
+      console.log(arrWithGameField);
     } else if (winner == "greenCircle") {
-      console.log(`выиграл ${winner}`);
       showWinner(winner);
     } else if (numberOfTheNextMove == 8) {
       showWinner("draw");
     }
   }
 });
+function showWinner(winner) {
+  popUp.classList.toggle("hidden");
+  winnerWindow.classList.add("winnerWindow");
+  if (winner == "redCross") {
+    winnerText.innerHTML = "Победил redCross";
+  } else if (winner == "greenCircle") {
+    winnerText.innerHTML = "Победил greenCircle";
+  } else {
+    winnerText.innerHTML = "Победила Дружба";
+  }
+}
 newGameButton.addEventListener("click", () => {
   window.location.reload();
 });
-function showWinner(winner) {
-  if (winner == "redCross") {
-    winnerWindow.classList.add("winnerWindow");
-    winnerText.innerHTML += "redCross";
-  } else if (winner == "greenCircle") {
-    winnerWindow.classList.add("winnerWindow");
-    winnerText.innerHTML += "greenCircle";
-  } else {
-    winnerWindow.classList.add("winnerWindow");
-    winnerText.innerHTML += "a Дружба";
-  }
-}
