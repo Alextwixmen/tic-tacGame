@@ -1,28 +1,8 @@
-const gameCell0 = document.querySelector(".gameСell0");
-const gameCell1 = document.querySelector(".gameСell1");
-const gameCell2 = document.querySelector(".gameСell2");
-const gameCell3 = document.querySelector(".gameСell3");
-const gameCell4 = document.querySelector(".gameСell4");
-const gameCell5 = document.querySelector(".gameСell5");
-const gameCell6 = document.querySelector(".gameСell6");
-const gameCell7 = document.querySelector(".gameСell7");
-const gameCell8 = document.querySelector(".gameСell8");
 const gameField = document.querySelector(".GameField");
 const newGameButton = document.querySelector(".newGameButton");
 const winnerText = document.querySelector(".winnerText");
 const winnerWindow = document.querySelector(".PopUpContent");
 const popUp = document.querySelector(".popUp");
-const arrWithCelss = [
-  "gameСell1",
-  "gameCell2",
-  "gameCell3",
-  "gameCell4",
-  "gameCell5",
-  "gameCell6",
-  "gameCell7",
-  "gameCell8",
-  "gameCell9",
-];
 const arrWithGameField = [[], [], [], [], [], [], [], [], []]; // наше поле для игры в ввиде массива
 // во время хода игрока на нолике будем добавлять 2 на соответствуюее место
 // во время хода игрока на крестике будем добавлять 1 на соответствуюшее место
@@ -148,6 +128,7 @@ function whoIsTheNext() {
   });
   return number;
 }
+// тут есть баг, поэтому лучше всего вешать листнера не на все поле, а на каждую отдельную клетку. Но пока я это не фиксил.
 gameField.addEventListener("click", (clickPlace) => {
   let redCross = document.createElement("img");
   redCross.src = "assets/img/cross.png";
@@ -203,3 +184,26 @@ function showWinner(winner) {
 newGameButton.addEventListener("click", () => {
   window.location.reload();
 });
+
+function smartComputer() {}
+
+// const gameCell0 = document.querySelector(".gameСell0");
+// const gameCell1 = document.querySelector(".gameСell1");
+// const gameCell2 = document.querySelector(".gameСell2");
+// const gameCell3 = document.querySelector(".gameСell3");
+// const gameCell4 = document.querySelector(".gameСell4");
+// const gameCell5 = document.querySelector(".gameСell5");
+// const gameCell6 = document.querySelector(".gameСell6");
+// const gameCell7 = document.querySelector(".gameСell7");
+// const gameCell8 = document.querySelector(".gameСell8");
+// const arrWithCelss = [
+//   "gameСell1",
+//   "gameCell2",
+//   "gameCell3",
+//   "gameCell4",
+//   "gameCell5",
+//   "gameCell6",
+//   "gameCell7",
+//   "gameCell8",
+//   "gameCell9",
+// ];
